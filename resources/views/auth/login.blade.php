@@ -1,18 +1,17 @@
-@extends("$routeAmbient.template.index")
+@extends("auth.template.index")
 
 @section('content')
     <div class="login-box">
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <a href="{{ route("$routeAmbient.$routeCrud.$routeMethod") }}" class="h1"><b>Mentoria</b>PN1</a>
+                <a href="{{ route("site.main.index") }}" class="h1"><b>Mentoria</b>PN1</a>
             </div>
             <div class="card-body">
                 <p class="login-box-msg">Faça login!</p>
-
                 <form action="{{ route("login") }}" method="post">
                     {{ csrf_field() }}
                     <div class="input-group mb-3">
-                        <input type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email">
+                        <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Email">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
@@ -25,7 +24,7 @@
                         @enderror
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password">
+                        <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Password">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>

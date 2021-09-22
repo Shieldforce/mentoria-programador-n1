@@ -9,8 +9,9 @@
     </ul>
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-                <i class="fas fa-th-large"></i>
+            <a class="nav-link" onclick="$('form[name=logout]').submit()" href="javascript:;" role="button">
+                <i class="fas fa-sign-out-alt"></i>
+                <form method="POST" action="{{ route("logout") }}" name="logout">{{ csrf_field() }}</form>
             </a>
         </li>
     </ul>
