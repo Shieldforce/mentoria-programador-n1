@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 
 use \App\Http\Controllers\Site\MainController as SiteController;
 use \App\Http\Controllers\Panel\MainController as PanelController;
+use \App\Http\Controllers\SocialNetwork\Auth\MainController as SocialNetworkAuthController;
+use \App\Http\Controllers\SocialNetwork\Panel\MainController as SocialNetworkPanelController;
 use Illuminate\Support\Facades\View;
 
 /*
@@ -70,6 +72,35 @@ Route::name("panel.")->middleware("auth")->group(function (){
             ->setWheres([
                 "label"        => "Página Principal do ",
                 "group"        => "Dashboard",
+                "roles_ids"    => "all"
+            ]);
+
+    });
+
+});
+
+// Grupo de rotas do ambiente Rede Social
+Route::prefix("dev-brothers/")->name("socialNetwork.")->group(function (){
+
+    Route::prefix("acesso/")->name("auth.")->group(function (){
+
+        Route::get("/login", [ SocialNetworkAuthController::class, "login" ])
+            ->name("login")
+            ->setWheres([
+                "label"        => "Página de ",
+                "group"        => "login",
+                "roles_ids"    => "all"
+            ]);
+
+    });
+
+    Route::prefix("dashboard/")->name("dashboard.")->group(function (){
+
+        Route::get("/index", [ SocialNetworkPanelController::class, "index" ])
+            ->name("index")
+            ->setWheres([
+                "label"        => "Página Principal da ",
+                "group"        => "Rede Social",
                 "roles_ids"    => "all"
             ]);
 
