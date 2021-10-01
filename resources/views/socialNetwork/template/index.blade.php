@@ -72,7 +72,7 @@
     <div class="row display-flex">
         <div class="col col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
             <div class="landing-content">
-                <img src="{{ asset("images/image-programador-auth.png/") }}" alt="" title="" class="btn btn-md btn-border c-white border-0" style="z-index: 2 !important;"/>
+                <img src="{{ asset('images/image-programador-auth.png/') }}" style="position: relative; width: 500px"/>
             </div>
         </div>
 
